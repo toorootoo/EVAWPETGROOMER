@@ -1593,7 +1593,18 @@
           method:'POST', body:new FormData(cf),
           headers:{'Accept':'application/json'}
         });
-        if(res.ok){ cf.reset(); ok.style.display='block'; ok.scrollIntoView({block:'center',behavior:'smooth'}); }
+        if(res.ok){
+          cf.reset(); ok.style.display='block'; ok.scrollIntoView({block:'center',behavior:'smooth'});
+          // GA4 전환 이벤트 (상담/수강료 조회 신청 완료)
+          if(typeof gtag==='function'){
+            gtag('event','generate_lead',{
+              form_id:'consultForm',
+              form_name:'무료전자책_수강료조회',
+              value:1
+            });
+          }
+          // 네이버 전환 스크립트 자리 (발급 후 여기에 wcs 전환 코드 추가)
+        }
         else { err.style.display='block'; }
       }catch(_){ err.style.display='block'; }
       finally{ btn.disabled=false; btn.textContent=orig; }
