@@ -987,12 +987,21 @@
   gtag('js', new Date());
   gtag('config', 'G-LKT1EKCXBX');
 </script>
-<!-- Naver Analytics -->
-<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<!-- Naver Analytics + 검색광고 전환추적 (둘 다 집계) -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
   if(!wcs_add) var wcs_add = {};
-  wcs_add["wa"] = "24afe73d6831b40";
-  if(window.wcs) { wcs_do(); }
+  if(!_nasa) var _nasa = {};
+  if(window.wcs){
+    // 광고 유입 추적
+    wcs.inflow();
+    // ① 네이버 애널리틱스
+    wcs_add["wa"] = "24afe73d6831b40";
+    wcs_do(_nasa);
+    // ② 네이버 검색광고 전환추적(공통)
+    wcs_add["wa"] = "s_3b47834b2b3c";
+    wcs_do(_nasa);
+  }
 </script>
 </head>
 <body>
