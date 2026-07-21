@@ -1612,7 +1612,14 @@
               value:1
             });
           }
-          // 네이버 전환 스크립트 자리 (발급 후 여기에 wcs 전환 코드 추가)
+          // 네이버 검색광고 전환 이벤트 (신청완료) — 완료 메시지 노출 시점에 실행
+          if(window.wcs){
+            if(!window.wcs_add) window.wcs_add={};
+            wcs_add["wa"]="s_3b47834b2b3c";
+            var _conv={};
+            _conv["cnv"]=wcs.cnv("4","1"); // 전환유형 4: 신청완료, 전환가치 1
+            wcs_do(_conv);
+          }
         }
         else { err.style.display='block'; }
       }catch(_){ err.style.display='block'; }
