@@ -1603,7 +1603,9 @@
           headers:{'Accept':'application/json'}
         });
         if(res.ok){
-          cf.reset(); ok.style.display='block'; ok.scrollIntoView({block:'center',behavior:'smooth'});
+       cf.reset();
+    ok.style.display='block';
+    ok.scrollIntoView({block:'center',behavior:'smooth'});
           // GA4 전환 이벤트 (상담/수강료 조회 신청 완료)
           if(typeof gtag==='function'){
             gtag('event','generate_lead',{
