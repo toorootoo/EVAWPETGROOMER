@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="robots" content="noindex">
-  <meta http-equiv="refresh" content="0; url=/#contact">
   <title>이바우펫 수강문의</title>
 
   <script>
-    window.location.replace('/#contact');
+    const query = window.location.search;
+    window.location.replace('/' + query + '#contact');
   </script>
 </head>
 
