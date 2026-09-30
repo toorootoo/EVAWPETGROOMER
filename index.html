@@ -1615,6 +1615,15 @@
               value:1
             });
           }
+
+         // ChatGPT Ads 전환 이벤트 (상담 신청 완료)
+if(typeof oaiq === 'function'){
+    oaiq(
+        "measure",
+        "lead_created",
+        { type: "customer_action" }
+    );
+}
           // 네이버 검색광고 전환 이벤트 (신청완료) — 완료 메시지 노출 시점에 실행
           if(window.wcs){
             if(!window.wcs_add) window.wcs_add={};
