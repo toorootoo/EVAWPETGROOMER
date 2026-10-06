@@ -1553,17 +1553,46 @@
 (function(){
   // ▼ 지점 추가: { name:'지점명', img:'/fees/파일명.png' } 형식으로 한 줄씩 추가하세요.
   var FEES = [
-    { name:'분당점', img:'/fees/bundang.png' }
+    { group:'서울',      name:'강남점',   img:'/fees/gangnam.png' },
+    { group:'서울',      name:'종로점',   img:'/fees/jongro.png' },
+    { group:'서울',      name:'노원점',   img:'/fees/nowon.png' },
+    { group:'서울',      name:'신림점',   img:'/fees/sillim.png' },
+    { group:'서울',      name:'천호점',   img:'/fees/cheonho.png' },
+    { group:'경기·인천', name:'분당점',   img:'/fees/bundang.png' },
+    { group:'경기·인천', name:'수원점',   img:'/fees/suwon.png' },
+    { group:'경기·인천', name:'일산점',   img:'/fees/ilsan.png' },
+    { group:'경기·인천', name:'부천점',   img:'/fees/bucheon.png' },
+    { group:'경기·인천', name:'인천점',   img:'/fees/incheon.png' },
+    { group:'경기·인천', name:'평택점',   img:'/fees/pyongteak.png' },
+    { group:'충청',      name:'천안점',   img:'/fees/cheonan.png' },
+    { group:'충청',      name:'대전점',   img:'/fees/daehwon.png' },
+    { group:'경상',      name:'동대구점', img:'/fees/dongdaegu.png' },
+    { group:'경상',      name:'반월당점', img:'/fees/banwoldang.png' },
+    { group:'경상',      name:'서면점',   img:'/fees/seomyeon.png' },
+    { group:'경상',      name:'연산점',   img:'/fees/yeonsan.png' },
+    { group:'경상',      name:'창원점',   img:'/fees/changwon.png' },
+    { group:'전라',      name:'광주점',   img:'/fees/gwangju.png' }
   ];
+  var DEFAULT_BRANCH = '분당점';
   var m=document.getElementById('feeModal'), sel=document.getElementById('feeSel'),
       body=document.getElementById('feeBody'), opener=document.getElementById('feeOpen');
-  FEES.forEach(function(f,i){var o=document.createElement('option');o.value=i;o.textContent=f.name;sel.appendChild(o);});
+  var groups={};
+  FEES.forEach(function(f,i){
+    var parent=sel;
+    if(f.group){
+      if(!groups[f.group]){groups[f.group]=document.createElement('optgroup');groups[f.group].label=f.group;sel.appendChild(groups[f.group]);}
+      parent=groups[f.group];
+    }
+    var o=document.createElement('option');o.value=i;o.textContent=f.name;
+    if(f.name===DEFAULT_BRANCH) o.selected=true;
+    parent.appendChild(o);
+  });
   if(FEES.length<2) sel.style.display='none';
   function show(i){
     var f=FEES[i]; body.innerHTML='';
     if(!f){body.innerHTML='<div class="fee-empty">등록된 교습비 정보가 없습니다.</div>';return;}
-    var a=document.createElement('a'); a.href=f.img; a.target='_blank'; a.rel='noopener';
-    var img=document.createElement('img'); img.src=f.img; img.alt='이바우펫 애견미용학원 '+f.name+' 교습비 등 고지';
+    var a=document.createElement('a'); var src=encodeURI(f.img); a.href=src; a.target='_blank'; a.rel='noopener';
+    var img=document.createElement('img'); img.src=src; img.alt='이바우펫 애견미용학원 '+f.name+' 교습비 등 고지';
     img.onerror=function(){body.innerHTML='<div class="fee-empty">'+f.name+' 교습비 이미지를 준비 중입니다.</div>';};
     a.appendChild(img); body.appendChild(a);
     var p=document.createElement('p'); p.textContent='이미지를 누르면 크게 볼 수 있습니다.'; body.appendChild(p);
