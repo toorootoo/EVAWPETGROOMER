@@ -591,7 +591,7 @@
   .stats-head .eyebrow{justify-content:center;color:var(--gold-lt);margin-top:14px}
   .stats-head .eyebrow::before{background:var(--gold-lt)}
   .stats-head h2{font-size:clamp(24px,3.4vw,36px);font-weight:900;letter-spacing:-1px;color:#fff}
-  .stats-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .stats-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:960px;margin:0 auto}
   .stat{
     position:relative;background:linear-gradient(180deg,rgba(20,35,63,.55),rgba(10,20,38,.35));
     border:1px solid rgba(201,164,76,.3);border-radius:20px;
@@ -612,7 +612,7 @@
   .stat .lbl{font-size:14px;color:rgba(255,255,255,.78);font-weight:600;margin-top:10px}
   .stat .stat-note{position:absolute;left:0;right:0;bottom:10px;text-align:center;
     font-size:11px;color:rgba(255,255,255,.5);font-weight:500;letter-spacing:-.2px}
-  @media(max-width:860px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px} .stat{padding:32px 24px}}
+  @media(max-width:860px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px} .stat{padding:32px 24px} .stat:first-child{grid-column:1/-1}}
   @media(max-width:560px){.stat{padding:28px 18px}}
 
   /* ---------- success cases ---------- */
@@ -960,6 +960,21 @@
   .foot-links{display:flex;gap:18px;flex-wrap:wrap;font-weight:600}
   .foot-links a:hover{color:var(--pink)}
   .foot-info b{color:var(--ink);font-weight:800;font-size:15px}
+  .foot-copy{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  .fee-link{background:none;border:0;padding:0;font:inherit;font-size:12px;color:#a3a9b5;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .fee-link:hover{color:var(--ink-soft)}
+  /* 지점별 교습비 모달 */
+  .fee-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(10,20,38,.6)}
+  .fee-modal.on{display:flex}
+  .fee-box{background:#fff;border-radius:16px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .fee-head{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .fee-head b{font-size:15px;color:var(--ink);flex:1}
+  .fee-head select{font:inherit;font-size:14px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+  .fee-close{background:none;border:0;font-size:24px;line-height:1;cursor:pointer;color:var(--ink-soft);padding:0 4px}
+  .fee-body{overflow:auto;padding:12px;text-align:center}
+  .fee-body img{width:100%;height:auto;display:block;border-radius:8px}
+  .fee-body p{font-size:13px;color:var(--ink-soft);margin:6px 0 0}
+  .fee-empty{padding:40px 10px;font-size:14px;color:var(--ink-soft)}
 
   /* ---------- floating contact ---------- */
   .float{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:10px}
@@ -1066,11 +1081,6 @@
           <div class="lbl">직영 캠퍼스 운영</div>
         </div>
         <div class="stat">
-          <div class="cap">수업 만족도</div>
-          <div class="num" data-to="92" data-suf="%">0</div>
-          <div class="lbl">수강생 평가 기준</div>
-        </div>
-        <div class="stat">
           <div class="cap">3급 자격증</div>
           <div class="num" data-to="3" data-suf="개월">0</div>
           <div class="lbl">평균 취득 기간</div>
@@ -1151,7 +1161,7 @@
     <p class="sec-lead">애견미용학원마다 비슷해 보여도, 졸업 이후가 다릅니다.<br>가정견 실습 환경부터 애견미용 자격증 취득, 수료 후 취업·창업 진로까지 끝까지 책임집니다.</p>
     <div class="why-grid">
       <div class="why-card"><div class="why-ic">🐩</div><h3>100% 가정견 실견 실습</h3><p>모형이 아닌 실제 가정견으로 배웁니다. 보호자 상담 → 미용 → 인계까지, 현장 그대로의 실무 능력을 쌓습니다.</p><span class="why-tag">실전 실습</span></div>
-      <div class="why-card"><div class="why-ic">👤</div><h3>개별 맞춤 1:1 피드백</h3><p>수강생 개인 수준에 맞춘 밀착 지도. 정예 수업으로 실력이 빠르게 늡니다.</p><span class="why-tag">정예 수업</span></div>
+      <div class="why-card"><div class="why-ic">👤</div><h3>개별 맞춤 피드백</h3><p>수강생 개인 수준에 맞춘 밀착 지도. 정예 수업으로 실력이 빠르게 늡니다.</p><span class="why-tag">정예 수업</span></div>
       <div class="why-card"><div class="why-ic">✂️</div><h3>미용 도구 무상 제공</h3><p>도구를 증정해 별도 구매 부담 없이 교육에만 집중할 수 있습니다.</p><span class="why-tag">도구 지원</span></div>
       <div class="why-card"><div class="why-ic">🗓️</div><h3>선택출석 시간제</h3><p>직장인·주부도 OK. 내 스케줄에 맞춰 자유롭게 수강합니다.</p><span class="why-tag">유연한 스케줄</span></div>
       <div class="why-card"><div class="why-ic">💼</div><h3>취업·창업 개별 지원</h3><p>전국 네트워크 기반 취업처 연계 및 창업 컨설팅. 졸업 이후도 함께합니다.</p><span class="why-tag">사후 지원</span></div>
@@ -1521,9 +1531,52 @@
         <a href="https://www.instagram.com/comang2ne/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
-    <div style="border-top:1px solid var(--line);padding-top:18px">Copyright © Evawpet. All rights reserved.</div>
+    <div class="foot-copy">
+      <span>Copyright © Evawpet. All rights reserved.</span>
+      <button type="button" class="fee-link" id="feeOpen">지점별 교습비 등 고지</button>
+    </div>
   </div>
 </footer>
+
+<!-- 지점별 교습비 모달: 지점 추가는 아래 FEES 목록에 한 줄씩 추가 -->
+<div class="fee-modal" id="feeModal" role="dialog" aria-modal="true" aria-labelledby="feeTitle">
+  <div class="fee-box">
+    <div class="fee-head">
+      <b id="feeTitle">지점별 교습비 안내</b>
+      <select id="feeSel" aria-label="지점 선택"></select>
+      <button type="button" class="fee-close" id="feeClose" aria-label="닫기">×</button>
+    </div>
+    <div class="fee-body" id="feeBody"></div>
+  </div>
+</div>
+<script>
+(function(){
+  // ▼ 지점 추가: { name:'지점명', img:'/fees/파일명.png' } 형식으로 한 줄씩 추가하세요.
+  var FEES = [
+    { name:'분당점', img:'/fees/bundang.png' }
+  ];
+  var m=document.getElementById('feeModal'), sel=document.getElementById('feeSel'),
+      body=document.getElementById('feeBody'), opener=document.getElementById('feeOpen');
+  FEES.forEach(function(f,i){var o=document.createElement('option');o.value=i;o.textContent=f.name;sel.appendChild(o);});
+  if(FEES.length<2) sel.style.display='none';
+  function show(i){
+    var f=FEES[i]; body.innerHTML='';
+    if(!f){body.innerHTML='<div class="fee-empty">등록된 교습비 정보가 없습니다.</div>';return;}
+    var a=document.createElement('a'); a.href=f.img; a.target='_blank'; a.rel='noopener';
+    var img=document.createElement('img'); img.src=f.img; img.alt='이바우펫 애견미용학원 '+f.name+' 교습비 등 고지';
+    img.onerror=function(){body.innerHTML='<div class="fee-empty">'+f.name+' 교습비 이미지를 준비 중입니다.</div>';};
+    a.appendChild(img); body.appendChild(a);
+    var p=document.createElement('p'); p.textContent='이미지를 누르면 크게 볼 수 있습니다.'; body.appendChild(p);
+  }
+  function open(){ show(sel.value||0); m.classList.add('on'); document.body.style.overflow='hidden'; }
+  function close(){ m.classList.remove('on'); document.body.style.overflow=''; opener.focus(); }
+  opener.addEventListener('click',open);
+  document.getElementById('feeClose').addEventListener('click',close);
+  m.addEventListener('click',function(e){ if(e.target===m) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&m.classList.contains('on')) close(); });
+  sel.addEventListener('change',function(){ show(sel.value); });
+})();
+</script>
 
 <!-- FLOATING (removed) -->
 
