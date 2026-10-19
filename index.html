@@ -504,13 +504,13 @@
   @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- section base ---------- */
-  section{padding:78px 0}
+  section{padding:64px 0}
   /* full-screen 16:9 panel: each section fills one screen, content centered */
   .screen{
-    min-height:100vh;
-    max-height:max(100vh,56.25vw);
+    min-height:0;
+    max-height:none;
     display:flex;flex-direction:column;justify-content:center;
-    padding-top:48px;padding-bottom:48px}
+    padding-top:64px;padding-bottom:64px}
   .screen > .wrap{width:100%}
   .eyebrow{font-size:13.5px;font-weight:800;letter-spacing:1px;color:var(--pink);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
   .eyebrow::before{content:"";width:24px;height:2px;background:var(--pink)}
@@ -519,23 +519,23 @@
 
   /* ---------- inquiry interstitial ---------- */
   .inquiry{
-    position:relative;overflow:hidden;
+    padding:44px 0;position:relative;overflow:hidden;
     background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,var(--mint-deep) 100%);
   }
   .inquiry .wrap{
     position:relative;z-index:2;
     display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;
-    min-height:clamp(180px,20vw,250px);
+    min-height:0;
   }
-  .inquiry-copy{padding:15px 0}
+  .inquiry-copy{padding:0}
   .inquiry-copy .eyebrow{justify-content:flex-start}
   .inquiry-copy .eyebrow{color:var(--gold-lt)}
   .inquiry-copy .eyebrow::before{background:var(--gold-lt)}
   .inquiry-copy h2{
     color:#fff;font-size:clamp(30px,4.6vw,52px);font-weight:900;letter-spacing:-1.4px;
-    line-height:1.22;margin:18px 0 30px}
+    line-height:1.22;margin:12px 0 22px}
   .inquiry-copy h2 .accent{color:var(--gold-lt)}
-  .inquiry-copy p{color:rgba(255,255,255,.82);font-size:17px;font-weight:500;max-width:440px;margin-bottom:34px}
+  .inquiry-copy p{color:rgba(255,255,255,.82);font-size:17px;font-weight:500;max-width:440px;margin-bottom:24px}
   /* gold-fill button */
   .inq-btn{
     position:relative;display:inline-flex;align-items:center;gap:12px;
@@ -570,7 +570,7 @@
   @media(max-width:860px){.why-grid{grid-template-columns:1fr}}
 
   /* ---------- stats counter (laurel cards) ---------- */
-  .stats-section{background:#0a1426;position:relative;overflow:hidden;padding:64px 0}
+  .stats-section{background:#0a1426;position:relative;overflow:hidden;padding:56px 0}
   .stats-section::before{content:"";position:absolute;inset:0;background:
      radial-gradient(700px 380px at 88% 0,rgba(201,164,76,.16),transparent 60%),
      radial-gradient(700px 380px at 5% 100%,rgba(232,207,140,.10),transparent 60%)}
@@ -788,11 +788,11 @@
   .ebook .ev-btn:hover .arr{transform:translateX(5px)}
 
   /* ---------- concern (anxiety) section ---------- */
-  .concern{background:#000;color:#fff;text-align:center;min-height:90vh;max-height:none;
+  .concern{background:#000;color:#fff;text-align:center;min-height:0;max-height:none;
     align-items:stretch}
   .concern .wrap{max-width:860px;margin:0 auto;padding:64px 22px;
-    display:flex;flex-direction:column;align-items:center;justify-content:space-between;
-    min-height:90vh;box-sizing:border-box}
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+    min-height:0;box-sizing:border-box}
   .concern .c-lead{font-size:clamp(20px,3vw,30px);line-height:1.5;font-weight:500;color:#fff}
   .concern .c-lead b{font-weight:900}
   .concern .c-boxes{margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:14px}
@@ -910,6 +910,12 @@
   .btn-call{max-width:560px;width:100%;justify-content:center;font-size:18px;padding:20px 28px}
   .btn-call .btn-stack{font-size:16px}
   /* consultation form */
+
+  .btn-kakao{background:#FEE500;border-color:#FEE500;color:#191919}
+  .btn-kakao:hover{background:#f5dc00;border-color:#f5dc00;color:#191919}
+  .consult .privacy-agree small{display:block;font-weight:500;color:var(--ink-soft);font-size:12px;margin-top:2px}
+  .consult .ct-msg.ok{line-height:1.7}
+  .consult .ok-kakao{display:inline-block;margin-top:10px;padding:10px 16px;border-radius:10px;background:#FEE500;color:#191919;font-weight:800;text-decoration:none}
   .consult{width:100%;max-width:560px;margin:0;background:#fff;border:1px solid var(--line);
     border-radius:22px;padding:30px 28px;box-shadow:var(--shadow-lg);text-align:left}
   @media(max-width:900px){.consult{margin:0 auto}}
@@ -986,13 +992,13 @@
   .fbtn.call{background:var(--pink)}
   @media(max-width:960px){
     .hero{max-height:none;height:auto;padding:64px 0;min-height:0}
-    .screen{min-height:0;max-height:none;padding-top:64px;padding-bottom:64px}
+    .screen{min-height:0;max-height:none;padding-top:56px;padding-bottom:56px}
   }
   @media(max-width:560px){
-    section{padding:58px 0}
+    section{padding:44px 0}
     .stats-section{padding:48px 0}
     .hero{padding:48px 0}
-    .screen{padding-top:48px;padding-bottom:48px}
+    .screen{padding-top:44px;padding-bottom:44px}
   }
 </style>
 <!-- Google Analytics 4 -->
@@ -1112,7 +1118,7 @@
 </section>
 
 <!-- INQUIRY INTERSTITIAL -->
-<section class="inquiry screen">
+<section class="inquiry">
   <div class="wrap">
     <div class="inquiry-copy">
       <div class="eyebrow">CONTACT</div>
@@ -1171,7 +1177,7 @@
 </section>
 
 <!-- INQUIRY INTERSTITIAL (2) -->
-<section class="inquiry screen">
+<section class="inquiry">
   <div class="wrap">
     <div class="inquiry-copy">
       <div class="eyebrow">CONTACT</div>
@@ -1348,63 +1354,49 @@
       <p>무료 상담 후 등록해도 늦지 않아요.<br><b style="font-weight:900">교육비 지원 금액</b>부터 확인해보세요.</p>
       <div class="final-cta">
         <a href="tel:010-2608-8298" class="btn btn-primary btn-call"><span class="btn-stack">📞 전화 상담<b>010-2608-8298</b></span></a>
+        <a href="https://open.kakao.com/o/sF3H2uih" target="_blank" rel="noopener" class="btn btn-kakao btn-call"><span class="btn-stack">💬 카카오톡 상담<b>바로 물어보기</b></span></a>
       </div>
     </div>
 
     <form id="consultForm" class="consult" action="https://formspree.io/f/mojonjkj" method="POST">
       <h3>무료 전자책 &amp; 수강료 조회</h3>
-      <p class="ct-sub">아래 내용을 남겨주시면 빠르게 연락드립니다.</p>
+      <p class="ct-sub">연락처만 남기시면 <b>수강료·장학지원 안내</b>와 전자책을 보내드립니다. (30초)</p>
       <div class="row">
         <div class="field">
           <label>이름 <span class="req">*</span></label>
-          <input type="text" name="이름" placeholder="홍길동" required>
+          <input type="text" name="이름" placeholder="홍길동" required autocomplete="name">
         </div>
         <div class="field">
           <label>연락처 <span class="req">*</span></label>
-          <input type="tel" name="연락처" placeholder="010-0000-0000" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="field">
-          <label>지역</label>
-          <input type="text" name="지역" placeholder="예: 분당, 성남">
-        </div>
-        <div class="field">
-          <label>수강 목적</label>
-          <select name="수강목적">
-            <option value="" disabled selected>선택해주세요</option>
-            <option value="자격증 취득">자격증 취득</option>
-            <option value="취업">취업</option>
-            <option value="창업">창업</option>
-            <option value="취미">취미</option>
-            <option value="기타">기타</option>
-          </select>
+          <input type="tel" name="연락처" placeholder="010-0000-0000" required autocomplete="tel" inputmode="tel">
         </div>
       </div>
       <div class="field">
-        <label>문의내용</label>
-        <textarea name="문의내용" placeholder="궁금한 점이나 희망 과정을 적어주세요."></textarea>
-      </div>
-      <div class="field">
-        <label>기타</label>
-        <input type="text" name="기타" placeholder="희망 상담 시간 등">
+        <label>관심 캠퍼스</label>
+        <select name="지역">
+          <option value="" disabled selected>가까운 캠퍼스를 선택해주세요 (선택)</option>
+          <option>강남</option><option>종로</option><option>노원</option><option>천호</option><option>신림</option>
+          <option>분당</option><option>수원</option><option>평택</option><option>부천</option><option>일산</option><option>인천</option>
+          <option>대전</option><option>천안</option><option>광주</option><option>동대구</option><option>반월당</option><option>창원</option>
+          <option>서면</option><option>덕천</option><option>연산</option><option>아직 모르겠어요</option>
+        </select>
       </div>
       <input type="hidden" name="_subject" value="[이바우펫] 무료 상담 신청">
       <input type="text" name="_gotcha" style="display:none">
       <div class="privacy">
         <label class="privacy-agree">
           <input type="checkbox" name="개인정보동의" required>
-          <span>개인정보 수집 및 이용에 동의합니다. <span class="req">*</span></span>
+          <span>개인정보 수집·이용 동의 <span class="req">*</span> <small>(이름·연락처 / 상담 안내 목적 / 1년 보관)</small></span>
         </label>
-        <ul class="privacy-detail">
-          <li><b>수집 항목</b> : 이름, 연락처</li>
-          <li><b>수집 목적</b> : 교육지원 정보 및 혜택 안내</li>
-          <li><b>보유 기간</b> : 작성일로부터 1년</li>
-        </ul>
       </div>
       <button type="submit" class="submit">무료 전자책 &amp; 수강료 조회하기</button>
-      <div class="ct-msg ok" id="ctOk">신청이 접수되었습니다. 곧 연락드리겠습니다 🙏</div>
-      <div class="ct-msg err" id="ctErr">전송에 실패했습니다. 잠시 후 다시 시도하거나 전화로 문의해주세요.</div>
+      <div class="ct-msg ok" id="ctOk">
+        <b>신청 완료! 🙏</b><br>
+        이바우펫 장학지원 적용 시 <b>월 30만 원대</b>부터 수강 가능합니다.<br>
+        정확한 수강료·시간표는 담당자가 곧 연락드려 안내해 드릴게요.<br>
+        <a href="https://open.kakao.com/o/sF3H2uih" target="_blank" rel="noopener" class="ok-kakao">💬 지금 바로 카톡으로 물어보기</a>
+      </div>
+      <div class="ct-msg err" id="ctErr">전송에 실패했습니다. 잠시 후 다시 시도하거나 전화(010-2608-8298)로 문의해주세요.</div>
       <p class="ct-note">입력하신 정보는 상담 목적으로만 사용되며, 상담 후 안전하게 폐기됩니다.</p>
     </form>
   </div>
